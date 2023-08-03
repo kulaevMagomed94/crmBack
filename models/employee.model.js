@@ -35,6 +35,10 @@ const employeeSchema = mongoose.Schema({
     team:{
         type:mongoose.SchemaTypes.ObjectId,
         ref:"Team"
+    },
+    role:{
+        type:String,
+        default:'employee'
     }
 
 });
