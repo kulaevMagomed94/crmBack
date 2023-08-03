@@ -12,12 +12,10 @@ const teamRouter = require('./routes/teams.route')
 
 
 app.use("/categories", categoriesRouter);
-<<<<<<< HEAD
 app.use(require("./routes/director.route"));
-=======
 app.use("/teams", teamRouter);
 
->>>>>>> main
+
 
 mongoose
   .connect(process.env.MONGO_SERVER)
