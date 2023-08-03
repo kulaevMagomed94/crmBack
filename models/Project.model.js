@@ -5,7 +5,10 @@ const projectSchema = mongoose.Schema({
     idCustomer:String,
     emailCustomer:String,
     addressCustomer:String,
-    
+    typeCompany:String,
+    startTime:Number,
+    finishedTime:Number
+
 })
 
 const Project = mongoose.model('Category', projectSchema)

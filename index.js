@@ -11,9 +11,16 @@ const categoriesRouter = require("./routes/categories.route");
 
 
 
+
+app.use("/categories", categoriesRouter);
+app.use(require("./routes/director.route"));
+app.use("/teams", teamRouter);
+
+
 app.use("/categories", categoriesRouter);
 app.use(require("./routes/teams.route"));
 app.use(require("./routes/tasks.route"));
+
 
 mongoose
   .connect(process.env.MONGO_SERVER)
