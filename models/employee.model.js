@@ -4,7 +4,7 @@ const employeeSchema = mongoose.Schema({
         type:String,
         default:''
     },
-    firsName:{
+    firstName:{
         type:String,
         default:''
     },
