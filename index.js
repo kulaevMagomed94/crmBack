@@ -12,7 +12,7 @@ const categoriesRouter = require("./routes/categories.route");
 
 
 app.use("/categories", categoriesRouter);
-
+app.use(require("./routes/director.route"));
 
 mongoose
   .connect(process.env.MONGO_SERVER)
