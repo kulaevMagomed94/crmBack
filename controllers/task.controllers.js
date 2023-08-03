@@ -1,20 +1,20 @@
-const Team = require("../models/Team.model");
+const Task = require("../models/Task.model");
 
 
-module.exports.teamControllers = {
-  getAllTeams: async (req, res) => {
-    const team = await Team.find();
-    res.json(team);
+module.exports.taskControllers = {
+  getAllTasks: async (req, res) => {
+    const task = await Task.find();
+    res.json(task);
   },
 
-  getOneTeam: async (req, res) =>{
+  getOneTask: async (req, res) =>{
     try {
 
-      const teamId = req.params.id;
+      const taskId = req.params.id;
     
-      const doc = await Team.findById(
+      const doc = await Task.findById(
           {
-          _id: teamId
+          _id: taskId
           })
     
       if (!doc) {
@@ -28,43 +28,43 @@ module.exports.teamControllers = {
     }
     },
 
-  deleteTeam: async (req, res) => {
+  deleteTask: async (req, res) => {
     const { id } = req.params;
 
     try {
-      const team = await Team.findByIdAndDelete(id);
+      const task = await Task.findByIdAndDelete(id);
       
-        return res.json("удолено " + team);
+        return res.json("удолено " + task);
 
     } catch (error) {
       return res.status(401).json({ error: "ошибка" + error.message });
     }
   },
-  createTeam: async (req, res) => {
+  createTask: async (req, res) => {
     const { name } = req.body;
 
     try {
-      const team = await Team.create({
+      const task = await Task.create({
         name,
       });
-      return res.json(team);
+      return res.json(task);
     } catch (error) {
       return res.status(401).json(error.message);
     }
   },
 
-  changeTeam: async (req, res) => {
+  changeTask: async (req, res) => {
     const {id} = req.params
 
     const { name } = req.body;
 
     try{
-        const team = await Team.findByIdAndUpdate(id, {
+        const task = await Task.findByIdAndUpdate(id, {
 
             name,
         
       });
-      return res.json(team);
+      return res.json(task + ' была изменена');
     } catch (error) {
         return res.status(401).json(error.message + ' ощибка изменения');
       }

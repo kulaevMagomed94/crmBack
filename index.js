@@ -8,13 +8,18 @@ app.use(cors());
 app.use(express.json());
 
 const categoriesRouter = require("./routes/categories.route");
-const teamRouter = require('./routes/teams.route')
+
+
 
 
 app.use("/categories", categoriesRouter);
 app.use(require("./routes/director.route"));
 app.use("/teams", teamRouter);
 
+
+app.use("/categories", categoriesRouter);
+app.use(require("./routes/teams.route"));
+app.use(require("./routes/tasks.route"));
 
 
 mongoose
