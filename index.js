@@ -20,6 +20,7 @@ app.use("/teams", teamRouter);
 app.use("/categories", categoriesRouter);
 app.use(require("./routes/teams.route"));
 app.use(require("./routes/tasks.route"));
+app.use(require('./routes/employee.route'))
 
 
 mongoose
