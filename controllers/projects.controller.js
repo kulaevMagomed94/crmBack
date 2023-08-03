@@ -2,9 +2,16 @@ const Project = require("../models/Project.model");
 
 module.exports.projectsController = {
   createProjects: async (req, res) => {
+    const {name,idCustomer,emailCustomer,addressCustomer,typeCompany,startTime,finishedTime} = req.body
     try {
       const data = await Project.create({
-        name: req.body.name,
+        name,
+        idCustomer,
+        emailCustomer,
+        addressCustomer,
+        typeCompany,
+        startTime,
+        finishedTime
       });
       res.json(data);
     } catch (error) {
