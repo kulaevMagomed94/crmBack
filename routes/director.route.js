@@ -1,9 +1,9 @@
 const { Router } = require("express");
 const { directorController } = require("../controllers/director.controller");
-// const registerValidation = require("../validations/auth");
-// const handleValidationErrors = require("../validations/handleValidationErrors");
+const registerValidation = require("../validations/auth");
+const handleValidationErrors = require("../validations/handleValidationErrors");
 const authMiddleware = require("../middleware/auth.middleware");
-// const loginValidation = require("../validations/login");
+const loginValidation = require("../validations/login");
 
 
 
@@ -16,8 +16,8 @@ router.get("/director", authMiddleware, directorController.getMe);
 //--------------Регистрация------------------
 router.post(
   "/auth",
-  // registerValidation,
-  // handleValidationErrors,
+  registerValidation,
+  handleValidationErrors,
   directorController.addDirector
 );
 //--------------Изменение------------------
@@ -26,8 +26,8 @@ router.patch("/director/id", authMiddleware, directorController.getUpdateDirecto
 //--------------ВХОД------------------
 router.post(
   "/login",
-  // loginValidation,
-  // handleValidationErrors,
+  loginValidation,
+  handleValidationErrors,
   directorController.login
 );
 
