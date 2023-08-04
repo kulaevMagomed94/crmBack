@@ -1,5 +1,5 @@
 const jwt = require("jsonwebtoken");
-const User = require("../models/User.model");
+const Director = require("../models/Director.model");
 module.exports = async (req, res, next) => {
   const { authorization } = req.headers;
 
@@ -13,8 +13,8 @@ module.exports = async (req, res, next) => {
   try {
     const payload = await jwt.verify(token, process.env.SECRET_JWT_KEY);
 
-    const user = await User.findById(payload.id);
-    req.user = user;
+    const director = await Director.findById(payload.id);
+    req.director = director;
     next();
   } catch (err) {
     return res.status(401).json({err: "Токен неверный"});
