@@ -22,7 +22,7 @@ router.post(
 );
 //--------------Изменение------------------
 router.patch("/director/id", authMiddleware, directorController.getUpdateDirector);
-
+router.get("/director", directorController.getOneUser)
 //--------------ВХОД------------------
 router.post(
   "/login",

@@ -8,6 +8,7 @@ app.use(cors());
 app.use(express.json());
 app.use('/images',express.static('images'))
 const categoriesRouter = require("./routes/categories.route");
+const teamRouter = require("./routes/teams.route");
 
 
 
