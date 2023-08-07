@@ -7,7 +7,7 @@ const projectSchema = mongoose.Schema({
     addressCustomer:String,
     typeCompany:String,
     startTime:Number,
-    finishedTime:Number
+    endTime:Date
 
 })
 
