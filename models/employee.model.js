@@ -20,10 +20,10 @@ const employeeSchema = mongoose.Schema({
         type:String,
         default:''
     },
-    image:{
+    image:[{
         type:String,
-        default:''
-    },
+        default: 'https://www.google.com/search?q=user&tbm=isch&source=lnms&sa=X&ved=2ahUKEwjEsJ7vhcqAAxVeQPEDHdH8DRwQ0pQJegQIDBAB&biw=1536&bih=739&dpr=1.25#imgrc=NsbJtj8KS-qKkM'}
+    ],
     category:{
         type:mongoose.SchemaTypes.ObjectId,
         ref:"Category"
