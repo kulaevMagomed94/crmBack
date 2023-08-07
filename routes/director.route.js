@@ -21,7 +21,9 @@ router.post(
   directorController.addDirector
 );
 //--------------Изменение------------------
+
 router.patch("/director/id",  directorController.getUpdateDirector);
+
 
 //--------------ВХОД------------------
 router.post(
