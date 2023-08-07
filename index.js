@@ -1,4 +1,5 @@
 require("dotenv").config();
+const moment = require('moment');
 
 const mongoose = require("mongoose");
 const express = require("express");
@@ -6,24 +7,32 @@ const cors = require("cors");
 const app = express();
 app.use(cors());
 app.use(express.json());
+
+
 app.use('/images',express.static('images'))
+
+
+
 const categoriesRouter = require("./routes/categories.route");
-const teamRouter = require("./routes/teams.route");
-
-
-
+const teamRouter = require("./routes/teams.route")
 
 
 app.use("/categories", categoriesRouter);
 app.use(require("./routes/director.route"));
 app.use("/teams", teamRouter);
+
 app.use(require('./routes/firm.route'))
 
 
-app.use("/categories", categoriesRouter);
+app.use("/timer", timerRouter)
+
+
 app.use(require("./routes/teams.route"));
 app.use(require("./routes/tasks.route"));
 app.use(require('./routes/employee.route'))
+
+
+
 
 
 mongoose
