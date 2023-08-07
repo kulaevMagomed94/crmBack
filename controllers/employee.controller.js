@@ -21,6 +21,8 @@ module.exports.employeeController = {
       team,
       role,
     } = req.body;
+
+    console.log(req.files)
     try {
       const employee = await Employee.create({
         email,
@@ -32,11 +34,11 @@ module.exports.employeeController = {
         task,
         team,
         role,
-        image: req.files.map((item) => item.path),
+        image: req.files && req.files.map((item) => item.path),
       });
       res.json(employee);
     } catch (error) {
-      res.json(error.message("Ошибка в postEmployee"));
+      res.json(error.message);
     }
   },
   deleteEmployee: async (req, res) => {
