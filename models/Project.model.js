@@ -8,6 +8,7 @@ const projectSchema = mongoose.Schema({
     typeCompany:String,
     startTime:Number,
     endTime:Date
+    
 
 })
 
