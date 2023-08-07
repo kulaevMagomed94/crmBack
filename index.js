@@ -13,9 +13,11 @@ const teamRouter = require("./routes/teams.route");
 
 
 
+
 app.use("/categories", categoriesRouter);
 app.use(require("./routes/director.route"));
 app.use("/teams", teamRouter);
+app.use(require('./routes/firm.route'))
 
 
 app.use("/categories", categoriesRouter);
