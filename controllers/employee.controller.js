@@ -20,6 +20,7 @@ module.exports.employeeController = {
       task,
       team,
       role,
+      firm
     } = req.body;
 
     console.log(req.files)
@@ -34,6 +35,7 @@ module.exports.employeeController = {
         task,
         team,
         role,
+        firm,
         image: req.files && req.files.map((item) => item.path),
       });
       res.json(employee);
@@ -57,6 +59,7 @@ module.exports.employeeController = {
         secondName:req.body.secondName,
         category:req.body.category,
         role:req.body.role,
+        firm:req.body.firm,
         image: req.files.map(item => item.path)
         })
         res.json(employee)
