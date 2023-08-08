@@ -60,7 +60,7 @@ module.exports.employeeController = {
         category:req.body.category,
         role:req.body.role,
         firm:req.body.firm,
-        image: req.files.map(item => item.path)
+        image: req.files&&req.files.map(item => item.path)
         })
         res.json(employee)
     }catch(error){

@@ -24,7 +24,7 @@ app.use("/teams", teamRouter);
 app.use(require('./routes/firm.route'))
 
 
-app.use("/timer", timerRouter)
+// app.use("/timer", timerRouter)
 
 
 app.use(require("./routes/teams.route"));
