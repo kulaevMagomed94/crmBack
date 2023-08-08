@@ -23,7 +23,7 @@ module.exports.employeeController = {
       firm
     } = req.body;
 
-    console.log(req.files)
+    console.log(req.files);
     try {
       const employee = await Employee.create({
         email,
@@ -51,20 +51,39 @@ module.exports.employeeController = {
       res.json(error.message("Ошибка в deleteEmployee"));
     }
   },
-  patchEmployee: async (req, res)=>{
-    try{
-        const employee = await Employee.findByIdAndUpdate(req.params.id,{
-        email:req.body.email,
-        firstName:req.body.firstName,
-        secondName:req.body.secondName,
-        category:req.body.category,
-        role:req.body.role,
-        firm:req.body.firm,
-        image: req.files&&req.files.map(item => item.path)
-        })
-        res.json(employee)
-    }catch(error){
-        res.json(error.message('Ошибка в patchEmployee'))
+  patchEmployee: async (req, res) => {
+    const {
+      email,
+      firstName,
+      secondName,
+      login,
+      password,
+      category,
+      task,
+      team,
+      role,
+    } = req.body;
+    try {
+      const employee = await Employee.findByIdAndUpdate(
+        req.params.id,
+        {
+          email,
+          firstName,
+          secondName,
+          login,
+          password,
+          category,
+          task,
+          team,
+          role,
+          image: req.files && req.files.map(item=>path)
+        },
+        
+        { new: true }
+      );
+      return res.json(employee);
+    } catch (error) {
+      res.json(error.message("Ошибка в patchEmployee"));
     }
-  }
+  },
 };
