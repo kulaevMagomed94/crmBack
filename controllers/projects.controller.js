@@ -1,8 +1,17 @@
 const Project = require("../models/Project.model");
 
+const calculateTotalDays = (startTime, endTime) => {
+  const diffInTime = new Date(endTime) - new Date(startTime);
+  console.log(diffInTime)
+  return diffInTime / (1000 * 3600 * 24);
+};
 module.exports.projectsController = {
   createProjects: async (req, res) => {
+
     const {name,idCustomer,emailCustomer,addressCustomer,typeCompany,startTime,endTime} = req.body
+    const totalDays = await calculateTotalDays(startTime, endTime)
+    console.log(totalDays)
+
     try {
       const data = await Project.create({
         name,
@@ -11,7 +20,10 @@ module.exports.projectsController = {
         addressCustomer,
         typeCompany,
         startTime,
-        endTime
+        endTime,
+        totalDays
+        
+
       });
       res.json(data);
     } catch (error) {
@@ -44,4 +56,5 @@ module.exports.projectsController = {
       return res.status(404).json(error.toString());
     }
   },
+ 
 };

@@ -14,13 +14,13 @@ app.use('/images',express.static('images'))
 
 const categoriesRouter = require("./routes/categories.route");
 const teamRouter = require("./routes/teams.route")
-const timerRouter = require("./routes/timer.route")
+const projectRouter = require("./routes/projects.controller")
+
 
 app.use("/categories", categoriesRouter);
 app.use(require("./routes/director.route"));
 app.use("/teams", teamRouter);
-app.use("/timer", timerRouter)
-
+app.use("/project", projectRouter)
 app.use("/categories", categoriesRouter);
 app.use(require("./routes/teams.route"));
 app.use(require("./routes/tasks.route"));
