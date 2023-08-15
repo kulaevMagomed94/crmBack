@@ -41,13 +41,16 @@ module.exports.teamControllers = {
     }
   },
   createTeam: async (req, res) => {
-    const { name } = req.body;
+    const { name  } = req.body;
 
     try {
       const team = await Team.create({
         name,
       });
-      return res.json(team);
+    
+      const teams = await Team.findByIdAndUpdate(team._id, {employeesTeam: req.body.employeesTeam},{new:true})
+
+      return res.json(teams);
     } catch (error) {
       return res.status(401).json(error.message);
     }
@@ -60,9 +63,7 @@ module.exports.teamControllers = {
 
     try{
         const team = await Team.findByIdAndUpdate(id, {
-
             name,
-        
       });
       return res.json(team);
     } catch (error) {

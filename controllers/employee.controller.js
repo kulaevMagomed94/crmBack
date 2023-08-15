@@ -2,7 +2,7 @@ const Employee = require("../models/employee.model");
 module.exports.employeeController = {
   getEmployee: async (req, res) => {
     try {
-      const employees = await Employee.find({});
+      const employees = await Employee.find({}).populate("category") ;
       res.json(employees);
     } catch (error) {
       res.json(error.message("Ошибка в getEmployee"));
