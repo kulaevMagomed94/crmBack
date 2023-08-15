@@ -6,6 +6,10 @@ const projectSchema = mongoose.Schema({
   emailCustomer: String,
   addressCustomer: String,
   typeCompany: String,
+  projectManager:{
+    type: mongoose.SchemaTypes.ObjectId,
+    ref: "Employee",
+  },
   startTime: { type: Date },
   endTime: { type: Date },
   totalDays: Number ,

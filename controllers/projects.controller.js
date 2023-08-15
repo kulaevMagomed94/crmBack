@@ -21,7 +21,7 @@ const calculateTotalDays = (startTime, endTime) => {
 module.exports.projectsController = {
   createProjects: async (req, res) => {
 
-    const {name,idCustomer,emailCustomer,addressCustomer,typeCompany,startTime,endTime} = req.body
+    const {name,idCustomer,emailCustomer,addressCustomer,typeCompany,startTime,endTime, projectManager} = req.body
     const totalDays =  calculateTotalDays(startTime.substr(0,10), endTime.substr(0,10))
     console.log(startTime.substr(0,10), endTime.substr(0,10), totalDays)
 
@@ -34,7 +34,8 @@ module.exports.projectsController = {
         typeCompany,
         startTime,
         endTime,
-        totalDays
+        totalDays,
+        projectManager
       });
       res.json(data);
     } catch (error) {
