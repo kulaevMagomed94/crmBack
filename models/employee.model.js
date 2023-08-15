@@ -34,7 +34,7 @@ const employeeSchema = mongoose.Schema({
     },
     team:{
         type:mongoose.Schema.Types.ObjectId,
-        ref:"Team"
+        ref:"Team",
     },
     role:{
         type:String,
