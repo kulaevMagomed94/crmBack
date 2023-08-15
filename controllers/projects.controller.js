@@ -22,7 +22,8 @@ module.exports.projectsController = {
   createProjects: async (req, res) => {
 
     const {name,idCustomer,emailCustomer,addressCustomer,typeCompany,startTime,endTime} = req.body
-    const totalDays =  calculateTotalDays(startTime, endTime)
+    const totalDays =  calculateTotalDays(startTime.substr(0,10), endTime.substr(0,10))
+    console.log(startTime.substr(0,10), endTime.substr(0,10), totalDays)
 
     try {
       const data = await Project.create({
