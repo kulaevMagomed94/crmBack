@@ -1,16 +1,28 @@
 const Project = require("../models/Project.model");
 
 const calculateTotalDays = (startTime, endTime) => {
-  const diffInTime = new Date(endTime) - new Date(startTime);
-  console.log(diffInTime)
+  const startDateParts = startTime.split(".");
+  const endDateParts = endTime.split(".");
+
+  const formattedStartDate = `${startDateParts[2]}-${startDateParts[1]}-${startDateParts[0]}`;
+  const formattedEndDate = `${endDateParts[2]}-${endDateParts[1]}-${endDateParts[0]}`;
+
+  const startDate = new Date(formattedStartDate);
+  const endDate = new Date(formattedEndDate);
+
+  const diffInTime = endDate - startDate;
+  console.log(diffInTime);
+
   return diffInTime / (1000 * 3600 * 24);
 };
+
+
+
 module.exports.projectsController = {
   createProjects: async (req, res) => {
 
     const {name,idCustomer,emailCustomer,addressCustomer,typeCompany,startTime,endTime} = req.body
-    const totalDays = await calculateTotalDays(startTime, endTime)
-    console.log(totalDays)
+    const totalDays =  calculateTotalDays(startTime, endTime)
 
     try {
       const data = await Project.create({
@@ -22,8 +34,6 @@ module.exports.projectsController = {
         startTime,
         endTime,
         totalDays
-        
-
       });
       res.json(data);
     } catch (error) {

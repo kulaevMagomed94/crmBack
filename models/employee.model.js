@@ -25,20 +25,24 @@ const employeeSchema = mongoose.Schema({
         default: 'https://www.google.com/search?q=user&tbm=isch&source=lnms&sa=X&ved=2ahUKEwjEsJ7vhcqAAxVeQPEDHdH8DRwQ0pQJegQIDBAB&biw=1536&bih=739&dpr=1.25#imgrc=NsbJtj8KS-qKkM'}
     ],
     category:{
-        type:mongoose.SchemaTypes.ObjectId,
-        ref:"Category"
+        type:mongoose.Schema.Types.ObjectId,
+        ref:"Category",
     },
     task:{
-        type:mongoose.SchemaTypes.ObjectId,
+        type:mongoose.Schema.Types.ObjectId,
         ref:"Task"
     },
     team:{
-        type:mongoose.SchemaTypes.ObjectId,
+        type:mongoose.Schema.Types.ObjectId,
         ref:"Team"
     },
     role:{
         type:String,
         default:'employee'
+    },
+    firm:{
+        type:mongoose.SchemaTypes.ObjectId,
+        ref:"Firm"
     }
 
 });

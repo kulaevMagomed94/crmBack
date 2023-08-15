@@ -11,5 +11,6 @@ const projectSchema = mongoose.Schema({
   totalDays: Number ,
 });
 
+
 const Project = mongoose.model("Project", projectSchema);
 module.exports = Project;
