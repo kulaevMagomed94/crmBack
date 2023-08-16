@@ -1,4 +1,8 @@
+
+const Firm = require('../models/Firm.model')
+
 const Employee = require("../models/Employee.model");
+
 module.exports.employeeController = {
   getEmployee: async (req, res) => {
     try {
